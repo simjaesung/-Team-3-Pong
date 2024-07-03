@@ -22,7 +22,7 @@ class PaddleGUI(Paddle):
         anchor = None
         if side == 'left':
             self.position = [0, HEIGHT//2-35]
-            keys[:] = ['<Up>', '<Down>']  # <-- TODO: change the keys for left side paddle
+            keys[:] = ['w', 's']  # <-- TODO: change the keys for left side paddle
             anchor = NW
 
         if side == "right":
