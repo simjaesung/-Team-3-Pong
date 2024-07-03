@@ -39,7 +39,8 @@ class GameLogic:
             self.reset()
 
     def ball_hits_wall(self): # <-- TODO: complete this function. check if self.ball.position[1] goes beyond 0 or HEIGHT
-        return False
+        if (self.ball.position[1] <= 0 or self.ball.position[1] >= HEIGHT):
+            return True
 
     def ball_hits_paddle(self):
         return self.ball.is_collision(self.paddle_left) or self.ball.is_collision(self.paddle_right)
@@ -65,4 +66,8 @@ class GameLogic:
         IF ball hits paddle
             - X-axis velocity reverses
         """
-
+        
+        if self.ball_hits_wall():
+            self.ball.velocity[1] *= -1
+        if self.ball_hits_paddle():
+            self.ball.velocity[0] *= -1
